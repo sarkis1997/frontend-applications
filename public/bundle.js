@@ -24,14 +24,33 @@ var app = (function () {
     function safe_not_equal(a, b) {
         return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
     }
+
+    function append(target, node) {
+        target.appendChild(node);
+    }
     function insert(target, node, anchor) {
         target.insertBefore(node, anchor || null);
     }
     function detach(node) {
         node.parentNode.removeChild(node);
     }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
     function element(name) {
         return document.createElement(name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function empty() {
+        return text('');
     }
     function children(element) {
         return Array.from(element.childNodes);
@@ -228,6 +247,10 @@ var app = (function () {
     function dispatch_dev(type, detail) {
         document.dispatchEvent(custom_event(type, detail));
     }
+    function append_dev(target, node) {
+        dispatch_dev("SvelteDOMInsert", { target, node });
+        append(target, node);
+    }
     function insert_dev(target, node, anchor) {
         dispatch_dev("SvelteDOMInsert", { target, node, anchor });
         insert(target, node, anchor);
@@ -235,6 +258,13 @@ var app = (function () {
     function detach_dev(node) {
         dispatch_dev("SvelteDOMRemove", { node });
         detach(node);
+    }
+    function set_data_dev(text, data) {
+        data = '' + data;
+        if (text.data === data)
+            return;
+        dispatch_dev("SvelteDOMSetData", { node: text, data });
+        text.data = data;
     }
     class SvelteComponentDev extends SvelteComponent {
         constructor(options) {
@@ -255,26 +285,33 @@ var app = (function () {
 
     const file = "src/App.svelte";
 
-    function create_fragment(ctx) {
-    	var p;
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = Object.create(ctx);
+    	child_ctx.result = list[i];
+    	return child_ctx;
+    }
+
+    // (47:2) {#each data as result}
+    function create_each_block(ctx) {
+    	var p, t_value = ctx.result.title.value + "", t;
 
     	const block = {
     		c: function create() {
     			p = element("p");
-    			add_location(p, file, 0, 0, 0);
-    		},
-
-    		l: function claim(nodes) {
-    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    			t = text(t_value);
+    			add_location(p, file, 47, 4, 1519);
     		},
 
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
+    			append_dev(p, t);
     		},
 
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: function update(changed, ctx) {
+    			if ((changed.data) && t_value !== (t_value = ctx.result.title.value + "")) {
+    				set_data_dev(t, t_value);
+    			}
+    		},
 
     		d: function destroy(detaching) {
     			if (detaching) {
@@ -282,14 +319,98 @@ var app = (function () {
     			}
     		}
     	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block.name, type: "each", source: "(47:2) {#each data as result}", ctx });
+    	return block;
+    }
+
+    function create_fragment(ctx) {
+    	var h1, t_1, each_1_anchor;
+
+    	let each_value = ctx.data;
+
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			h1 = element("h1");
+    			h1.textContent = "Hello";
+    			t_1 = space();
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			each_1_anchor = empty();
+    			add_location(h1, file, 45, 2, 1475);
+    		},
+
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h1, anchor);
+    			insert_dev(target, t_1, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(target, anchor);
+    			}
+
+    			insert_dev(target, each_1_anchor, anchor);
+    		},
+
+    		p: function update(changed, ctx) {
+    			if (changed.data) {
+    				each_value = ctx.data;
+
+    				let i;
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(changed, child_ctx);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+
+    		i: noop,
+    		o: noop,
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(h1);
+    				detach_dev(t_1);
+    			}
+
+    			destroy_each(each_blocks, detaching);
+
+    			if (detaching) {
+    				detach_dev(each_1_anchor);
+    			}
+    		}
+    	};
     	dispatch_dev("SvelteRegisterBlock", { block, id: create_fragment.name, type: "component", source: "", ctx });
     	return block;
     }
 
-    function instance($$self) {
-    	onMount(async () => {
+    function instance($$self, $$props, $$invalidate) {
+    	let data = [];
 
-       const el = document.querySelector('p');
+      onMount(() => {
        const url ="https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-07/sparql";
        //Note that the query is wrapped in es6 template strings to allow for easy copy pasting
        const query = `
@@ -311,36 +432,30 @@ var app = (function () {
      ?cho edm:isShownBy ?img .
      ?cho dct:created ?period
    }
-
-
-
    `;
        runQuery(url, query);
 
        function runQuery(url, query){
-         //Test if the endpoint is up and print result to page
-         // (you can improve this script by making the next part of this function wait for a succesful result)
          fetch(url)
-           .then(res => el.innerText = "Status of API: " + res.status);
-         // Call the url with the query attached, output data
+           .then(res => console.log("Status of API: " + res.status));
          fetch(url+"?query="+ encodeURIComponent(query) +"&format=json")
-         .then(res => res.json())
-         .then(json => {
-         console.log(json);
-         console.table(json.results);
-         el.textContent = JSON.stringify(json.results);
+            .then(res => res.json())
+            .then(json => {
+                console.table(json.results.bindings);
+                $$invalidate('data', data = json.results.bindings);
          });
        }
-
       });
 
     	$$self.$capture_state = () => {
     		return {};
     	};
 
-    	$$self.$inject_state = $$props => {};
+    	$$self.$inject_state = $$props => {
+    		if ('data' in $$props) $$invalidate('data', data = $$props.data);
+    	};
 
-    	return {};
+    	return { data };
     }
 
     class App extends SvelteComponentDev {

@@ -1,12 +1,9 @@
-<p></p>
-
-
 <script>
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte'
 
-  onMount(async () => {
+     let data = [];
 
-   const el = document.querySelector('p')
+  onMount(() => {
    const url ="https://api.data.netwerkdigitaalerfgoed.nl/datasets/ivo/NMVW/services/NMVW-07/sparql"
    //Note that the query is wrapped in es6 template strings to allow for easy copy pasting
    const query = `
@@ -28,27 +25,26 @@
      ?cho edm:isShownBy ?img .
      ?cho dct:created ?period
    }
-
-
-
    `
    runQuery(url, query)
 
    function runQuery(url, query){
-     //Test if the endpoint is up and print result to page
-     // (you can improve this script by making the next part of this function wait for a succesful result)
      fetch(url)
-       .then(res => el.innerText = "Status of API: " + res.status)
-     // Call the url with the query attached, output data
+       .then(res => console.log("Status of API: " + res.status))
      fetch(url+"?query="+ encodeURIComponent(query) +"&format=json")
-     .then(res => res.json())
-     .then(json => {
-     console.log(json)
-     console.table(json.results);
-     el.textContent = JSON.stringify(json.results)
+        .then(res => res.json())
+        .then(json => {
+            console.table(json.results.bindings);
+            data = json.results.bindings;
      })
    }
-
   });
 
+
   </script>
+
+  <h1>Hello</h1>
+  {#each data as result}
+    <p>{result.title.value}</p>
+  {/each}
+
