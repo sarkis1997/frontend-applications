@@ -20,7 +20,15 @@ This project is about to get more attention of younger people for the NMVW.
 
 ### but how?
 I had the idea to create a 'social media' lookalike app where the user can scroll through.
-The focus of the app is on slavery. 
+The focus of the app is on slavery.
+I wanted to give the users an idea and feeling of slavery by showing all kind of items that were related to slavery.
+By showing the images, titles, descriptions and the periods of introduce I'll try to make a timeline in which the items will be showed from past to present. 
+At the bottom of the page, there will be images showed of slavery during the period of that product to make an extra impression.
 
 ### How will it look?
+This is a raw sketch of how the app will look like.
 <img src="https://github.com/sarkis1997/frontend-applications/blob/master/schets1.png">
+
+## API
+
+## License
