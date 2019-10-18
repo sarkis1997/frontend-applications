@@ -32,3 +32,4 @@ This is a raw sketch of how the app will look like.
 ## API
 
 ## License
+<a href="https://github.com/sarkis1997/frontend-applications/blob/master/LICENSE">MIT</a>
