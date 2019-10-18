@@ -12,7 +12,7 @@
 4. cd [path/to/the/file/(app)].
 5. 'npm i' or 'npm install'.
 6. 'npm run dev' to start the local development server.
-    *the app will rebuild everytime you make a change.
+    * the app will rebuild everytime you make a change.
 7. browse to localhost:5000 in your browser.
 
 
