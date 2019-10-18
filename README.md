@@ -9,11 +9,15 @@
 2. Uncompress the zip file.
 3. Open the complete file in your code editor of choice.
 4. Run the terminal
-4. cd [path/to/the/file/(app)].
-5. 'npm i' or 'npm install'.
-6. 'npm run dev' to start the local development server.
+4. `cd path/to/the/app`.
+5. `npm i` or `npm install`.
+6. `npm run dev` to start the local development server.
     * the app will rebuild everytime you make a change.
-7. browse to localhost:5000 in your browser.
+7. browse to `localhost:5000` in your browser.
+
+## What is the project about?
+This project is about to get more attention of younger people
+
 
 
 <img src="https://github.com/sarkis1997/frontend-applications/blob/master/schets1.png">
