@@ -30,6 +30,13 @@ This is a raw sketch of how the app will look like.
 <img src="https://github.com/sarkis1997/frontend-applications/blob/master/schets1.png">
 
 ## API
+The API is a dataset of around 700.000 objects of the NMVW. 
+I have fetched all the objects related to slavery.
+To be more specific, I have fetched the following things per object:
+* Titles
+* Descriptions
+* Periods
+* Images
 
 ## License
-<a href="https://github.com/sarkis1997/frontend-applications/blob/master/LICENSE">MIT</a>
+<a href="https://github.com/sarkis1997/frontend-applications/blob/master/LICENSE">MIT</a> @ Sarkis Moeradjan
