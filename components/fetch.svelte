@@ -31,10 +31,11 @@ export function runTheQuery () {
      fetch(url+"?query="+ encodeURIComponent(query) +"&format=json")
         .then(res => res.json())
         .then(json => {
-            console.log(json.results.bindings);
-            data = json.results.bindings;
+            data = json.results.bindings
+            console.log(data)
      })
    }
+
 }
 
 

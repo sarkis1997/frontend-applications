@@ -7,6 +7,7 @@
   onMount(() => {
       runTheQuery()
   });
-  console.log()
   </script>
+
+
 
