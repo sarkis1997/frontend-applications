@@ -330,30 +330,33 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (25:4) {#each data as result}
+    // (26:4) {#each data as result}
     function create_each_block(ctx) {
-    	var li, h1, t0_value = ctx.result.title.value + "", t0, t1, p, t2_value = ctx.result.description.value + "", t2, t3;
+    	var li, div, h1, t0_value = ctx.result.title.value + "", t0, t1, p, t2_value = ctx.result.description.value + "", t2, t3;
 
     	const block = {
     		c: function create() {
     			li = element("li");
+    			div = element("div");
     			h1 = element("h1");
     			t0 = text(t0_value);
     			t1 = space();
     			p = element("p");
     			t2 = text(t2_value);
     			t3 = space();
-    			add_location(h1, file, 26, 12, 449);
-    			add_location(p, file, 27, 12, 491);
-    			add_location(li, file, 25, 8, 432);
+    			add_location(h1, file, 28, 16, 514);
+    			add_location(p, file, 29, 16, 560);
+    			add_location(div, file, 27, 12, 492);
+    			add_location(li, file, 26, 8, 475);
     		},
 
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
-    			append_dev(li, h1);
+    			append_dev(li, div);
+    			append_dev(div, h1);
     			append_dev(h1, t0);
-    			append_dev(li, t1);
-    			append_dev(li, p);
+    			append_dev(div, t1);
+    			append_dev(div, p);
     			append_dev(p, t2);
     			append_dev(li, t3);
     		},
@@ -374,7 +377,7 @@ var app = (function () {
     			}
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block.name, type: "each", source: "(25:4) {#each data as result}", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block.name, type: "each", source: "(26:4) {#each data as result}", ctx });
     	return block;
     }
 
@@ -396,7 +399,7 @@ var app = (function () {
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
-    			add_location(ul, file, 23, 0, 392);
+    			add_location(ul, file, 24, 0, 435);
     		},
 
     		l: function claim(nodes) {
@@ -451,22 +454,23 @@ var app = (function () {
     }
 
     function instance($$self, $$props, $$invalidate) {
-    	let data = [];
+    	const fetchFunction = fetch(url+"?query="+ encodeURIComponent(query) +"&format=json");
 
-    function fetchData() {
-       runQuery(url, query);
+    let data = [];
+    let runQuery = () => {
+        fetchFunction
+        .then(res => res.json())
+        .then(json => {
+            $$invalidate('data', data = json.results.bindings);
+        });
+    };
 
-       function runQuery(url, query){
-         fetch(url+"?query="+ encodeURIComponent(query) +"&format=json")
-            .then(res => res.json())
-            .then(json => {
-                $$invalidate('data', data = json.results.bindings);
-                console.log(data);
-         });
-       }
-    }
+    runQuery();
 
-    fetchData();
+    //FOUND OUT THAT I NEED TO DELAY BEFORE I CAN CONSOLE LOG
+     setTimeout(function() {
+         console.log(data);
+     }, 100);
 
     	$$self.$capture_state = () => {
     		return {};
@@ -474,6 +478,7 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ('data' in $$props) $$invalidate('data', data = $$props.data);
+    		if ('runQuery' in $$props) runQuery = $$props.runQuery;
     	};
 
     	return { data };
