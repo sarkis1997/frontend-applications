@@ -344,10 +344,10 @@ var app = (function () {
     			p = element("p");
     			t2 = text(t2_value);
     			t3 = space();
-    			add_location(h1, file, 28, 16, 514);
-    			add_location(p, file, 29, 16, 560);
-    			add_location(div, file, 27, 12, 492);
-    			add_location(li, file, 26, 8, 475);
+    			add_location(h1, file, 28, 16, 515);
+    			add_location(p, file, 29, 16, 561);
+    			add_location(div, file, 27, 12, 493);
+    			add_location(li, file, 26, 8, 476);
     		},
 
     		m: function mount(target, anchor) {
@@ -399,7 +399,7 @@ var app = (function () {
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
-    			add_location(ul, file, 24, 0, 435);
+    			add_location(ul, file, 24, 0, 436);
     		},
 
     		l: function claim(nodes) {
@@ -470,7 +470,7 @@ var app = (function () {
     //FOUND OUT THAT I NEED TO DELAY BEFORE I CAN CONSOLE LOG
      setTimeout(function() {
          console.log(data);
-     }, 100);
+     }, 1000);
 
     	$$self.$capture_state = () => {
     		return {};
