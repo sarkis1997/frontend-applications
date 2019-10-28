@@ -14,10 +14,11 @@ let runQuery = () => {
 
 runQuery()
 
-//FOUND OUT THAT I NEED TO DELAY BEFORE I CAN CONSOLE LOG
  setTimeout(function() {
      console.log(data)
  }, 1000)
+
+
 
 </script>
 

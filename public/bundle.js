@@ -330,7 +330,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (26:4) {#each data as result}
+    // (27:4) {#each data as result}
     function create_each_block(ctx) {
     	var li, div, h1, t0_value = ctx.result.title.value + "", t0, t1, p, t2_value = ctx.result.description.value + "", t2, t3;
 
@@ -344,10 +344,10 @@ var app = (function () {
     			p = element("p");
     			t2 = text(t2_value);
     			t3 = space();
-    			add_location(h1, file, 28, 16, 515);
-    			add_location(p, file, 29, 16, 561);
-    			add_location(div, file, 27, 12, 493);
-    			add_location(li, file, 26, 8, 476);
+    			add_location(h1, file, 29, 16, 459);
+    			add_location(p, file, 30, 16, 505);
+    			add_location(div, file, 28, 12, 437);
+    			add_location(li, file, 27, 8, 420);
     		},
 
     		m: function mount(target, anchor) {
@@ -377,7 +377,7 @@ var app = (function () {
     			}
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block.name, type: "each", source: "(26:4) {#each data as result}", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block.name, type: "each", source: "(27:4) {#each data as result}", ctx });
     	return block;
     }
 
@@ -399,7 +399,7 @@ var app = (function () {
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
-    			add_location(ul, file, 24, 0, 436);
+    			add_location(ul, file, 25, 0, 380);
     		},
 
     		l: function claim(nodes) {
@@ -467,7 +467,6 @@ var app = (function () {
 
     runQuery();
 
-    //FOUND OUT THAT I NEED TO DELAY BEFORE I CAN CONSOLE LOG
      setTimeout(function() {
          console.log(data);
      }, 1000);
