@@ -1216,8 +1216,8 @@ var app = (function () {
 
     const file$4 = "components/header.svelte";
 
-    // (9:3) <NavLink href="#" class="text-center">
-    function create_default_slot_3(ctx) {
+    // (10:3) <NavLink href="#" class="text-center">
+    function create_default_slot_5(ctx) {
     	var img;
 
     	const block = {
@@ -1225,7 +1225,7 @@ var app = (function () {
     			img = element("img");
     			attr_dev(img, "src", Logo);
     			attr_dev(img, "alt", "");
-    			add_location(img, file$4, 9, 4, 204);
+    			add_location(img, file$4, 10, 4, 218);
     		},
 
     		m: function mount(target, anchor) {
@@ -1240,19 +1240,19 @@ var app = (function () {
     			}
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_3.name, type: "slot", source: "(9:3) <NavLink href=\"\" class=\"text-center\">", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_5.name, type: "slot", source: "(10:3) <NavLink href=\"\" class=\"text-center\">", ctx });
     	return block;
     }
 
-    // (8:2) <Col>
-    function create_default_slot_2(ctx) {
+    // (9:2) <Col>
+    function create_default_slot_4(ctx) {
     	var current;
 
     	var navlink = new NavLink({
     		props: {
     		href: "#",
     		class: "text-center",
-    		$$slots: { default: [create_default_slot_3] },
+    		$$slots: { default: [create_default_slot_5] },
     		$$scope: { ctx }
     	},
     		$$inline: true
@@ -1290,16 +1290,90 @@ var app = (function () {
     			destroy_component(navlink, detaching);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_2.name, type: "slot", source: "(8:2) <Col>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_4.name, type: "slot", source: "(9:2) <Col>", ctx });
     	return block;
     }
 
-    // (7:1) <Row>
+    // (8:1) <Row>
+    function create_default_slot_3(ctx) {
+    	var current;
+
+    	var col = new Col({
+    		props: {
+    		$$slots: { default: [create_default_slot_4] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	const block = {
+    		c: function create() {
+    			col.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(col, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var col_changes = {};
+    			if (changed.$$scope) col_changes.$$scope = { changed, ctx };
+    			col.$set(col_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(col.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(col.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(col, detaching);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_3.name, type: "slot", source: "(8:1) <Row>", ctx });
+    	return block;
+    }
+
+    // (17:2) <Col class="text-center">
+    function create_default_slot_2(ctx) {
+    	var h1;
+
+    	const block = {
+    		c: function create() {
+    			h1 = element("h1");
+    			h1.textContent = "Slavernij sinds 1700";
+    			add_location(h1, file$4, 17, 3, 318);
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h1, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(h1);
+    			}
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_2.name, type: "slot", source: "(17:2) <Col class=\"text-center\">", ctx });
+    	return block;
+    }
+
+    // (16:1) <Row>
     function create_default_slot_1(ctx) {
     	var current;
 
     	var col = new Col({
     		props: {
+    		class: "text-center",
     		$$slots: { default: [create_default_slot_2] },
     		$$scope: { ctx }
     	},
@@ -1338,15 +1412,23 @@ var app = (function () {
     			destroy_component(col, detaching);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_1.name, type: "slot", source: "(7:1) <Row>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_1.name, type: "slot", source: "(16:1) <Row>", ctx });
     	return block;
     }
 
-    // (6:0) <Container>
+    // (7:0) <Container>
     function create_default_slot(ctx) {
-    	var current;
+    	var t0, hr0, t1, t2, hr1, current;
 
-    	var row = new Row({
+    	var row0 = new Row({
+    		props: {
+    		$$slots: { default: [create_default_slot_3] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	var row1 = new Row({
     		props: {
     		$$slots: { default: [create_default_slot_1] },
     		$$scope: { ctx }
@@ -1356,42 +1438,76 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			row.$$.fragment.c();
+    			row0.$$.fragment.c();
+    			t0 = space();
+    			hr0 = element("hr");
+    			t1 = space();
+    			row1.$$.fragment.c();
+    			t2 = space();
+    			hr1 = element("hr");
+    			add_location(hr0, file$4, 14, 1, 274);
+    			add_location(hr1, file$4, 20, 1, 366);
     		},
 
     		m: function mount(target, anchor) {
-    			mount_component(row, target, anchor);
+    			mount_component(row0, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, hr0, anchor);
+    			insert_dev(target, t1, anchor);
+    			mount_component(row1, target, anchor);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, hr1, anchor);
     			current = true;
     		},
 
     		p: function update(changed, ctx) {
-    			var row_changes = {};
-    			if (changed.$$scope) row_changes.$$scope = { changed, ctx };
-    			row.$set(row_changes);
+    			var row0_changes = {};
+    			if (changed.$$scope) row0_changes.$$scope = { changed, ctx };
+    			row0.$set(row0_changes);
+
+    			var row1_changes = {};
+    			if (changed.$$scope) row1_changes.$$scope = { changed, ctx };
+    			row1.$set(row1_changes);
     		},
 
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(row.$$.fragment, local);
+    			transition_in(row0.$$.fragment, local);
+
+    			transition_in(row1.$$.fragment, local);
 
     			current = true;
     		},
 
     		o: function outro(local) {
-    			transition_out(row.$$.fragment, local);
+    			transition_out(row0.$$.fragment, local);
+    			transition_out(row1.$$.fragment, local);
     			current = false;
     		},
 
     		d: function destroy(detaching) {
-    			destroy_component(row, detaching);
+    			destroy_component(row0, detaching);
+
+    			if (detaching) {
+    				detach_dev(t0);
+    				detach_dev(hr0);
+    				detach_dev(t1);
+    			}
+
+    			destroy_component(row1, detaching);
+
+    			if (detaching) {
+    				detach_dev(t2);
+    				detach_dev(hr1);
+    			}
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot.name, type: "slot", source: "(6:0) <Container>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot.name, type: "slot", source: "(7:0) <Container>", ctx });
     	return block;
     }
 
     function create_fragment$4(ctx) {
-    	var t, hr, current;
+    	var current;
 
     	var container = new Container({
     		props: {
@@ -1404,9 +1520,6 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			container.$$.fragment.c();
-    			t = space();
-    			hr = element("hr");
-    			add_location(hr, file$4, 14, 0, 272);
     		},
 
     		l: function claim(nodes) {
@@ -1415,8 +1528,6 @@ var app = (function () {
 
     		m: function mount(target, anchor) {
     			mount_component(container, target, anchor);
-    			insert_dev(target, t, anchor);
-    			insert_dev(target, hr, anchor);
     			current = true;
     		},
 
@@ -1440,16 +1551,13 @@ var app = (function () {
 
     		d: function destroy(detaching) {
     			destroy_component(container, detaching);
-
-    			if (detaching) {
-    				detach_dev(t);
-    				detach_dev(hr);
-    			}
     		}
     	};
     	dispatch_dev("SvelteRegisterBlock", { block, id: create_fragment$4.name, type: "component", source: "", ctx });
     	return block;
     }
+
+    let Logo = '../public/images/wmnv-logo.jpg';
 
     class Header extends SvelteComponentDev {
     	constructor(options) {
@@ -1495,15 +1603,15 @@ var app = (function () {
 
     const file$5 = "lib/item-grid.svelte";
 
-    // (17:12) <Col>
-    function create_default_slot_5(ctx) {
+    // (22:12) <Col>
+    function create_default_slot_5$1(ctx) {
     	var h1, t;
 
     	const block = {
     		c: function create() {
     			h1 = element("h1");
     			t = text(ctx.title);
-    			add_location(h1, file$5, 17, 16, 272);
+    			add_location(h1, file$5, 22, 16, 372);
     		},
 
     		m: function mount(target, anchor) {
@@ -1523,17 +1631,17 @@ var app = (function () {
     			}
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_5.name, type: "slot", source: "(17:12) <Col>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_5$1.name, type: "slot", source: "(22:12) <Col>", ctx });
     	return block;
     }
 
-    // (16:8) <Row>
-    function create_default_slot_4(ctx) {
+    // (21:8) <Row>
+    function create_default_slot_4$1(ctx) {
     	var current;
 
     	var col = new Col({
     		props: {
-    		$$slots: { default: [create_default_slot_5] },
+    		$$slots: { default: [create_default_slot_5$1] },
     		$$scope: { ctx }
     	},
     		$$inline: true
@@ -1571,40 +1679,44 @@ var app = (function () {
     			destroy_component(col, detaching);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_4.name, type: "slot", source: "(16:8) <Row>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_4$1.name, type: "slot", source: "(21:8) <Row>", ctx });
     	return block;
     }
 
-    // (22:12) <Col sm="4">
+    // (27:12) <Col sm="4">
     function create_default_slot_3$1(ctx) {
-    	var t;
+    	var img;
 
     	const block = {
     		c: function create() {
-    			t = text(ctx.img);
+    			img = element("img");
+    			attr_dev(img, "src", ctx.imgSrc);
+    			attr_dev(img, "alt", "");
+    			attr_dev(img, "class", "svelte-1uu4q10");
+    			add_location(img, file$5, 26, 24, 461);
     		},
 
     		m: function mount(target, anchor) {
-    			insert_dev(target, t, anchor);
+    			insert_dev(target, img, anchor);
     		},
 
     		p: function update(changed, ctx) {
-    			if (changed.img) {
-    				set_data_dev(t, ctx.img);
+    			if (changed.imgSrc) {
+    				attr_dev(img, "src", ctx.imgSrc);
     			}
     		},
 
     		d: function destroy(detaching) {
     			if (detaching) {
-    				detach_dev(t);
+    				detach_dev(img);
     			}
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_3$1.name, type: "slot", source: "(22:12) <Col sm=\"4\">", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_3$1.name, type: "slot", source: "(27:12) <Col sm=\"4\">", ctx });
     	return block;
     }
 
-    // (23:12) <Col sm="8">
+    // (28:12) <Col sm="8">
     function create_default_slot_2$1(ctx) {
     	var t;
 
@@ -1629,11 +1741,11 @@ var app = (function () {
     			}
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_2$1.name, type: "slot", source: "(23:12) <Col sm=\"8\">", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_2$1.name, type: "slot", source: "(28:12) <Col sm=\"8\">", ctx });
     	return block;
     }
 
-    // (21:8) <Row>
+    // (26:8) <Row>
     function create_default_slot_1$1(ctx) {
     	var t, current;
 
@@ -1671,7 +1783,7 @@ var app = (function () {
 
     		p: function update(changed, ctx) {
     			var col0_changes = {};
-    			if (changed.$$scope || changed.img) col0_changes.$$scope = { changed, ctx };
+    			if (changed.$$scope || changed.imgSrc) col0_changes.$$scope = { changed, ctx };
     			col0.$set(col0_changes);
 
     			var col1_changes = {};
@@ -1704,17 +1816,17 @@ var app = (function () {
     			destroy_component(col1, detaching);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_1$1.name, type: "slot", source: "(21:8) <Row>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_1$1.name, type: "slot", source: "(26:8) <Row>", ctx });
     	return block;
     }
 
-    // (15:4) <Container>
+    // (20:4) <Container>
     function create_default_slot$1(ctx) {
     	var t, current;
 
     	var row0 = new Row({
     		props: {
-    		$$slots: { default: [create_default_slot_4] },
+    		$$slots: { default: [create_default_slot_4$1] },
     		$$scope: { ctx }
     	},
     		$$inline: true
@@ -1748,7 +1860,7 @@ var app = (function () {
     			row0.$set(row0_changes);
 
     			var row1_changes = {};
-    			if (changed.$$scope || changed.description || changed.img) row1_changes.$$scope = { changed, ctx };
+    			if (changed.$$scope || changed.description || changed.imgSrc) row1_changes.$$scope = { changed, ctx };
     			row1.$set(row1_changes);
     		},
 
@@ -1777,12 +1889,12 @@ var app = (function () {
     			destroy_component(row1, detaching);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot$1.name, type: "slot", source: "(15:4) <Container>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot$1.name, type: "slot", source: "(20:4) <Container>", ctx });
     	return block;
     }
 
     function create_fragment$5(ctx) {
-    	var li, current;
+    	var li, t, hr, current;
 
     	var container = new Container({
     		props: {
@@ -1796,8 +1908,11 @@ var app = (function () {
     		c: function create() {
     			li = element("li");
     			container.$$.fragment.c();
-    			attr_dev(li, "class", "svelte-lzo93t");
-    			add_location(li, file$5, 13, 0, 203);
+    			t = space();
+    			hr = element("hr");
+    			attr_dev(li, "class", "mb-2 svelte-1uu4q10");
+    			add_location(li, file$5, 18, 0, 290);
+    			add_location(hr, file$5, 31, 0, 576);
     		},
 
     		l: function claim(nodes) {
@@ -1807,12 +1922,14 @@ var app = (function () {
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
     			mount_component(container, li, null);
+    			insert_dev(target, t, anchor);
+    			insert_dev(target, hr, anchor);
     			current = true;
     		},
 
     		p: function update(changed, ctx) {
     			var container_changes = {};
-    			if (changed.$$scope || changed.description || changed.img || changed.title) container_changes.$$scope = { changed, ctx };
+    			if (changed.$$scope || changed.description || changed.imgSrc || changed.title) container_changes.$$scope = { changed, ctx };
     			container.$set(container_changes);
     		},
 
@@ -1834,6 +1951,11 @@ var app = (function () {
     			}
 
     			destroy_component(container);
+
+    			if (detaching) {
+    				detach_dev(t);
+    				detach_dev(hr);
+    			}
     		}
     	};
     	dispatch_dev("SvelteRegisterBlock", { block, id: create_fragment$5.name, type: "component", source: "", ctx });
@@ -1841,9 +1963,9 @@ var app = (function () {
     }
 
     function instance$4($$self, $$props, $$invalidate) {
-    	let { title, description, img } = $$props;
+    	let { title, description, imgSrc } = $$props;
 
-    	const writable_props = ['title', 'description', 'img'];
+    	const writable_props = ['title', 'description', 'imgSrc'];
     	Object.keys($$props).forEach(key => {
     		if (!writable_props.includes(key) && !key.startsWith('$$')) console.warn(`<Item_grid> was created with unknown prop '${key}'`);
     	});
@@ -1851,26 +1973,26 @@ var app = (function () {
     	$$self.$set = $$props => {
     		if ('title' in $$props) $$invalidate('title', title = $$props.title);
     		if ('description' in $$props) $$invalidate('description', description = $$props.description);
-    		if ('img' in $$props) $$invalidate('img', img = $$props.img);
+    		if ('imgSrc' in $$props) $$invalidate('imgSrc', imgSrc = $$props.imgSrc);
     	};
 
     	$$self.$capture_state = () => {
-    		return { title, description, img };
+    		return { title, description, imgSrc };
     	};
 
     	$$self.$inject_state = $$props => {
     		if ('title' in $$props) $$invalidate('title', title = $$props.title);
     		if ('description' in $$props) $$invalidate('description', description = $$props.description);
-    		if ('img' in $$props) $$invalidate('img', img = $$props.img);
+    		if ('imgSrc' in $$props) $$invalidate('imgSrc', imgSrc = $$props.imgSrc);
     	};
 
-    	return { title, description, img };
+    	return { title, description, imgSrc };
     }
 
     class Item_grid extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$4, create_fragment$5, safe_not_equal, ["title", "description", "img"]);
+    		init(this, options, instance$4, create_fragment$5, safe_not_equal, ["title", "description", "imgSrc"]);
     		dispatch_dev("SvelteRegisterComponent", { component: this, tagName: "Item_grid", options, id: create_fragment$5.name });
 
     		const { ctx } = this.$$;
@@ -1881,8 +2003,8 @@ var app = (function () {
     		if (ctx.description === undefined && !('description' in props)) {
     			console.warn("<Item_grid> was created without expected prop 'description'");
     		}
-    		if (ctx.img === undefined && !('img' in props)) {
-    			console.warn("<Item_grid> was created without expected prop 'img'");
+    		if (ctx.imgSrc === undefined && !('imgSrc' in props)) {
+    			console.warn("<Item_grid> was created without expected prop 'imgSrc'");
     		}
     	}
 
@@ -1902,11 +2024,11 @@ var app = (function () {
     		throw new Error("<Item_grid>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	get img() {
+    	get imgSrc() {
     		throw new Error("<Item_grid>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	set img(value) {
+    	set imgSrc(value) {
     		throw new Error("<Item_grid>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -1921,14 +2043,14 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (32:8) <ItemGrid             title={result.title.value}             description={result.description.value}             img="img">
+    // (32:8) <ItemGrid             title={result.title.value}             description={result.description.value}             imgSrc={result.img.value}>
     function create_default_slot_1$2(ctx) {
     	const block = {
     		c: noop,
     		m: noop,
     		d: noop
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_1$2.name, type: "slot", source: "(32:8) <ItemGrid             title={result.title.value}             description={result.description.value}             img=\"img\">", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_1$2.name, type: "slot", source: "(32:8) <ItemGrid             title={result.title.value}             description={result.description.value}             imgSrc={result.img.value}>", ctx });
     	return block;
     }
 
@@ -1940,7 +2062,7 @@ var app = (function () {
     		props: {
     		title: ctx.result.title.value,
     		description: ctx.result.description.value,
-    		img: "img",
+    		imgSrc: ctx.result.img.value,
     		$$slots: { default: [create_default_slot_1$2] },
     		$$scope: { ctx }
     	},
@@ -1961,6 +2083,7 @@ var app = (function () {
     			var itemgrid_changes = {};
     			if (changed.dataRaw) itemgrid_changes.title = ctx.result.title.value;
     			if (changed.dataRaw) itemgrid_changes.description = ctx.result.description.value;
+    			if (changed.dataRaw) itemgrid_changes.imgSrc = ctx.result.img.value;
     			if (changed.$$scope) itemgrid_changes.$$scope = { changed, ctx };
     			itemgrid.$set(itemgrid_changes);
     		},

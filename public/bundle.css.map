@@ -5,8 +5,8 @@
     "../lib/item-grid.svelte"
   ],
   "sourcesContent": [
-    "<script>\n    import { Container, Row, Col } from 'sveltestrap'\n    export let title;\n    export let description;\n    export let img;\n</script>\n\n<style>\n    li {\n        list-style: none;\n    }\n</style>\n\n<li>\n    <Container>\n        <Row>\n            <Col>\n                <h1>{title}</h1>\n            </Col>\n        </Row>\n        <Row>\n            <Col sm=\"4\">{img}</Col>\n            <Col sm=\"8\">{description}</Col>\n        </Row>\n    </Container> \n</li>\n"
+    "<script>\n    import { Container, Row, Col } from 'sveltestrap'\n    export let title;\n    export let description;\n    export let imgSrc;\n</script>\n\n<style>\n    li {\n        list-style: none;\n        background-color: rgb(248, 211, 211);\n    }\n\n    img {\n        width: 100%;\n    }\n</style>\n\n<li class=\"mb-2\">\n    <Container>\n        <Row>\n            <Col>\n                <h1>{title}</h1>\n            </Col>\n        </Row>\n        <Row>\n            <Col sm=\"4\"><img src={imgSrc} alt=\"\"></Col>\n            <Col sm=\"8\">{description}</Col>\n        </Row>\n    </Container> \n</li>\n<hr/>\n"
   ],
   "names": [],
-  "mappings": "AAQI,EAAE,cAAC,CAAC,AACA,UAAU,CAAE,IAAI,AACpB,CAAC"
+  "mappings": "AAQI,EAAE,eAAC,CAAC,AACA,UAAU,CAAE,IAAI,CAChB,gBAAgB,CAAE,IAAI,GAAG,CAAC,CAAC,GAAG,CAAC,CAAC,GAAG,CAAC,AACxC,CAAC,AAED,GAAG,eAAC,CAAC,AACD,KAAK,CAAE,IAAI,AACf,CAAC"
 }

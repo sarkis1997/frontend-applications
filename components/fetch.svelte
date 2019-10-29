@@ -32,7 +32,7 @@ let dataRaw = [];
         <ItemGrid
             title={result.title.value}
             description={result.description.value}
-            img="img">
+            imgSrc={result.img.value}>
             </ItemGrid>
         {/each}
     </ul>

@@ -15,6 +15,7 @@ export default {
 		file: 'public/bundle.js'
 	},
 	plugins: [
+
 		svelte({
 			// enable run-time checks when not in production
 			dev: !production,
@@ -42,7 +43,8 @@ export default {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
+
 	],
 	watch: {
 		clearScreen: false
