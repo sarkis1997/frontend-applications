@@ -3,8 +3,9 @@
 </svelte:head>
 
 <script>
+  import Header from '../components/header.svelte'
   import Fetch from '../components/fetch.svelte'
 </script>
 
-
+<Header/>
 <Fetch/>

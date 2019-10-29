@@ -1,5 +1,5 @@
 <script>
-    import { Container, Row, Col} from 'sveltestrap'
+    import { Container, Row, Col } from 'sveltestrap'
     export let title;
     export let description;
     export let img;
@@ -12,7 +12,15 @@
 </style>
 
 <li>
-    <h1>{title}</h1>
-    <p>{description}</p>
-    <img src={img}>
+    <Container>
+        <Row>
+            <Col>
+                <h1>{title}</h1>
+            </Col>
+        </Row>
+        <Row>
+            <Col sm="4">{img}</Col>
+            <Col sm="8">{description}</Col>
+        </Row>
+    </Container> 
 </li>

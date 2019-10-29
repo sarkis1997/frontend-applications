@@ -2,13 +2,11 @@
   "version": 3,
   "file": "bundle.css",
   "sources": [
-    "../components/fetch.svelte",
     "../lib/item-grid.svelte"
   ],
   "sourcesContent": [
-    "<script>\nimport { url, query } from '../lib/API.svelte'\nimport '../lib/item-grid.svelte'\n\nconst fetchFunction = fetch(url+\"?query=\"+ encodeURIComponent(query) +\"&format=json\")\n\nlet data = []\n\nlet runQuery = () => {\n    fetchFunction\n    .then(res => res.json())\n    .then(json => {\n        data = json.results.bindings\n    })\n}\n\nrunQuery()\n\n setTimeout(function() {\n     console.log(data)\n }, 1000)\n\n</script>\n\n<style>\n    p {\n        color: red;\n    }\n</style>\n\n\n<ul>\n    {#each data as result}\n        <li>\n            <div>\n                <h1>{result.title.value}</h1>\n                <p>{result.description.value}</p>\n            </div>\n        </li>\n    {/each}\n</ul>",
-    "<script>\n    import { Container, Row, Col} from 'sveltestrap'\n    export let title;\n    export let description;\n    export let img;\n</script>\n\n<style>\n    li {\n        list-style: none;\n    }\n</style>\n\n<li>\n    <h1>{title}</h1>\n    <p>{description}</p>\n    <img src={img}>\n</li>\n"
+    "<script>\n    import { Container, Row, Col } from 'sveltestrap'\n    export let title;\n    export let description;\n    export let img;\n</script>\n\n<style>\n    li {\n        list-style: none;\n    }\n</style>\n\n<li>\n    <Container>\n        <Row>\n            <Col>\n                <h1>{title}</h1>\n            </Col>\n        </Row>\n        <Row>\n            <Col sm=\"4\">{img}</Col>\n            <Col sm=\"8\">{description}</Col>\n        </Row>\n    </Container> \n</li>\n"
   ],
   "names": [],
-  "mappings": "AAyBI,CAAC,cAAC,CAAC,AACC,KAAK,CAAE,GAAG,AACd,CAAC;ACnBD,EAAE,cAAC,CAAC,AACA,UAAU,CAAE,IAAI,AACpB,CAAC"
+  "mappings": "AAQI,EAAE,cAAC,CAAC,AACA,UAAU,CAAE,IAAI,AACpB,CAAC"
 }

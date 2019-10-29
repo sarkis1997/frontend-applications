@@ -1,31 +1,39 @@
 <script>
+import { onMount } from 'svelte';
 import { url, query } from '../lib/API.svelte'
+import { filterHTML } from '../lib/regex.svelte'
 import ItemGrid from '../lib/item-grid.svelte'
+import { Container, Row, Col } from 'sveltestrap'
 
-const fetchFunction = fetch(url+"?query="+ encodeURIComponent(query) +"&format=json");
-let data = [];
+const fetchString = fetch(url+"?query="+ encodeURIComponent(query) +"&format=json");
+let dataRaw = [];
 
-let runQuery = () => {
-    fetchFunction
+(fetchData => {
+    fetchString
     .then(res => res.json())
     .then(json => {
-        data = json.results.bindings
+        dataRaw = json.results.bindings
+        dataRaw.forEach(filterHTML)
     })
-};
+})();
 
-runQuery();
+
+
 
  setTimeout(function() {
-     console.log(data)
+    console.log(dataRaw)
  }, 1000)
 
 </script>
 
-<ul>
-    {#each data as result}
-       <ItemGrid
-        title={result.title.value}
-        description={result.description.value}>
-        </ItemGrid>
-    {/each}
-</ul>
+<Container>
+    <ul>
+        {#each dataRaw as result}
+        <ItemGrid
+            title={result.title.value}
+            description={result.description.value}
+            img="img">
+            </ItemGrid>
+        {/each}
+    </ul>
+</Container>
