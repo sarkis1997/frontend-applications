@@ -27,7 +27,7 @@ At the bottom of the page, there will be images showed of slavery during the per
 
 ### How will it look?
 This is a raw sketch of how the app will look like.
-<img src="https://github.com/sarkis1997/frontend-applications/blob/master/schets1.png">
+<img src="https://github.com/sarkis1997/frontend-applications/blob/master/public/images/schets1.png">
 
 ## API
 The API is a dataset of around 700.000 objects of the NMVW. 
