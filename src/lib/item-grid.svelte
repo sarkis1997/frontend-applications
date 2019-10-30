@@ -8,7 +8,7 @@
 <style>
     li {
         list-style: none;
-        background-color: #eeee);
+        background-color: #eeeeee;
     }
 
     img {

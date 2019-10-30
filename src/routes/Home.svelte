@@ -4,8 +4,18 @@
 
 <script>
   import Header from '../components/header.svelte'
-  import Fetch from '../components/fetch.svelte'
+  import Items from '../components/fetch.svelte'
+  import { Container, Row, Col } from 'sveltestrap'
 </script>
 
 <Header/>
-<Fetch/>
+<Container>
+  <Row>
+    <Col xs="1">
+     bar
+    </Col>
+    <Col>
+      <Items/>
+    </Col>
+  </Row>
+</Container>

@@ -1,14 +1,19 @@
 <script>
   import { Container, Row, Col, Nav, NavItem, NavLink } from 'sveltestrap';
-  
-  let Logo = '../public/images/wmnv-logo.jpg'
 </script>
+
+<style>
+img { 
+	width: 5em;
+	height: 5em;
+}
+</style>
 
 <Container>
 	<Row>
 		<Col>
 			<NavLink href="#" class="text-center">
-				<img src={Logo} alt="">
+				<img src="" alt="">
 			</NavLink>
 		</Col>
 	</Row>

@@ -1216,23 +1216,22 @@ var app = (function () {
 
     const file$4 = "components/header.svelte";
 
-    // (10:3) <NavLink href="#" class="text-center">
+    // (15:3) <NavLink href="#" class="text-center">
     function create_default_slot_5(ctx) {
     	var img;
 
     	const block = {
     		c: function create() {
     			img = element("img");
-    			attr_dev(img, "src", Logo);
+    			attr_dev(img, "src", "");
     			attr_dev(img, "alt", "");
-    			add_location(img, file$4, 10, 4, 218);
+    			attr_dev(img, "class", "svelte-1ki00n9");
+    			add_location(img, file$4, 15, 4, 223);
     		},
 
     		m: function mount(target, anchor) {
     			insert_dev(target, img, anchor);
     		},
-
-    		p: noop,
 
     		d: function destroy(detaching) {
     			if (detaching) {
@@ -1240,11 +1239,11 @@ var app = (function () {
     			}
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_5.name, type: "slot", source: "(10:3) <NavLink href=\"\" class=\"text-center\">", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_5.name, type: "slot", source: "(15:3) <NavLink href=\"\" class=\"text-center\">", ctx });
     	return block;
     }
 
-    // (9:2) <Col>
+    // (14:2) <Col>
     function create_default_slot_4(ctx) {
     	var current;
 
@@ -1290,11 +1289,11 @@ var app = (function () {
     			destroy_component(navlink, detaching);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_4.name, type: "slot", source: "(9:2) <Col>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_4.name, type: "slot", source: "(14:2) <Col>", ctx });
     	return block;
     }
 
-    // (8:1) <Row>
+    // (13:1) <Row>
     function create_default_slot_3(ctx) {
     	var current;
 
@@ -1338,11 +1337,11 @@ var app = (function () {
     			destroy_component(col, detaching);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_3.name, type: "slot", source: "(8:1) <Row>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_3.name, type: "slot", source: "(13:1) <Row>", ctx });
     	return block;
     }
 
-    // (17:2) <Col class="text-center">
+    // (22:2) <Col class="text-center">
     function create_default_slot_2(ctx) {
     	var h1;
 
@@ -1350,7 +1349,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			h1.textContent = "Slavernij sinds 1700";
-    			add_location(h1, file$4, 17, 3, 318);
+    			add_location(h1, file$4, 22, 3, 319);
     		},
 
     		m: function mount(target, anchor) {
@@ -1363,11 +1362,11 @@ var app = (function () {
     			}
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_2.name, type: "slot", source: "(17:2) <Col class=\"text-center\">", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_2.name, type: "slot", source: "(22:2) <Col class=\"text-center\">", ctx });
     	return block;
     }
 
-    // (16:1) <Row>
+    // (21:1) <Row>
     function create_default_slot_1(ctx) {
     	var current;
 
@@ -1412,11 +1411,11 @@ var app = (function () {
     			destroy_component(col, detaching);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_1.name, type: "slot", source: "(16:1) <Row>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_1.name, type: "slot", source: "(21:1) <Row>", ctx });
     	return block;
     }
 
-    // (7:0) <Container>
+    // (12:0) <Container>
     function create_default_slot(ctx) {
     	var t0, hr0, t1, t2, hr1, current;
 
@@ -1445,8 +1444,8 @@ var app = (function () {
     			row1.$$.fragment.c();
     			t2 = space();
     			hr1 = element("hr");
-    			add_location(hr0, file$4, 14, 1, 274);
-    			add_location(hr1, file$4, 20, 1, 366);
+    			add_location(hr0, file$4, 19, 1, 275);
+    			add_location(hr1, file$4, 25, 1, 367);
     		},
 
     		m: function mount(target, anchor) {
@@ -1502,7 +1501,7 @@ var app = (function () {
     			}
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot.name, type: "slot", source: "(7:0) <Container>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot.name, type: "slot", source: "(12:0) <Container>", ctx });
     	return block;
     }
 
@@ -1557,8 +1556,6 @@ var app = (function () {
     	return block;
     }
 
-    let Logo = '../public/images/wmnv-logo.jpg';
-
     class Header extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
@@ -1611,7 +1608,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			t = text(ctx.title);
-    			add_location(h1, file$5, 22, 16, 372);
+    			add_location(h1, file$5, 22, 16, 361);
     		},
 
     		m: function mount(target, anchor) {
@@ -1692,8 +1689,8 @@ var app = (function () {
     			img = element("img");
     			attr_dev(img, "src", ctx.imgSrc);
     			attr_dev(img, "alt", "");
-    			attr_dev(img, "class", "svelte-1uu4q10");
-    			add_location(img, file$5, 26, 24, 461);
+    			attr_dev(img, "class", "svelte-e3heh7");
+    			add_location(img, file$5, 26, 24, 450);
     		},
 
     		m: function mount(target, anchor) {
@@ -1910,9 +1907,9 @@ var app = (function () {
     			container.$$.fragment.c();
     			t = space();
     			hr = element("hr");
-    			attr_dev(li, "class", "mb-2 svelte-1uu4q10");
-    			add_location(li, file$5, 18, 0, 290);
-    			add_location(hr, file$5, 31, 0, 576);
+    			attr_dev(li, "class", "mb-2 svelte-e3heh7");
+    			add_location(li, file$5, 18, 0, 279);
+    			add_location(hr, file$5, 31, 0, 565);
     		},
 
     		l: function claim(nodes) {
@@ -2297,12 +2294,199 @@ var app = (function () {
 
     const file$7 = "src/App.svelte";
 
+    // (14:4) <Col xs="1">
+    function create_default_slot_3$2(ctx) {
+    	var t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("bar");
+    		},
+
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+
+    		d: function destroy(detaching) {
+    			if (detaching) {
+    				detach_dev(t);
+    			}
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_3$2.name, type: "slot", source: "(14:4) <Col xs=\"1\">", ctx });
+    	return block;
+    }
+
+    // (17:4) <Col>
+    function create_default_slot_2$2(ctx) {
+    	var current;
+
+    	var items = new Fetch({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			items.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(items, target, anchor);
+    			current = true;
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(items.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(items.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(items, detaching);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_2$2.name, type: "slot", source: "(17:4) <Col>", ctx });
+    	return block;
+    }
+
+    // (13:2) <Row>
+    function create_default_slot_1$3(ctx) {
+    	var t, current;
+
+    	var col0 = new Col({
+    		props: {
+    		xs: "1",
+    		$$slots: { default: [create_default_slot_3$2] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	var col1 = new Col({
+    		props: {
+    		$$slots: { default: [create_default_slot_2$2] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	const block = {
+    		c: function create() {
+    			col0.$$.fragment.c();
+    			t = space();
+    			col1.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(col0, target, anchor);
+    			insert_dev(target, t, anchor);
+    			mount_component(col1, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var col0_changes = {};
+    			if (changed.$$scope) col0_changes.$$scope = { changed, ctx };
+    			col0.$set(col0_changes);
+
+    			var col1_changes = {};
+    			if (changed.$$scope) col1_changes.$$scope = { changed, ctx };
+    			col1.$set(col1_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(col0.$$.fragment, local);
+
+    			transition_in(col1.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(col0.$$.fragment, local);
+    			transition_out(col1.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(col0, detaching);
+
+    			if (detaching) {
+    				detach_dev(t);
+    			}
+
+    			destroy_component(col1, detaching);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_1$3.name, type: "slot", source: "(13:2) <Row>", ctx });
+    	return block;
+    }
+
+    // (12:0) <Container>
+    function create_default_slot$3(ctx) {
+    	var current;
+
+    	var row = new Row({
+    		props: {
+    		$$slots: { default: [create_default_slot_1$3] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
+
+    	const block = {
+    		c: function create() {
+    			row.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(row, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var row_changes = {};
+    			if (changed.$$scope) row_changes.$$scope = { changed, ctx };
+    			row.$set(row_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(row.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(row.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(row, detaching);
+    		}
+    	};
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot$3.name, type: "slot", source: "(12:0) <Container>", ctx });
+    	return block;
+    }
+
     function create_fragment$7(ctx) {
     	var link, t0, t1, current;
 
     	var header = new Header({ $$inline: true });
 
-    	var fetch = new Fetch({ $$inline: true });
+    	var container = new Container({
+    		props: {
+    		$$slots: { default: [create_default_slot$3] },
+    		$$scope: { ctx }
+    	},
+    		$$inline: true
+    	});
 
     	const block = {
     		c: function create() {
@@ -2310,7 +2494,7 @@ var app = (function () {
     			t0 = space();
     			header.$$.fragment.c();
     			t1 = space();
-    			fetch.$$.fragment.c();
+    			container.$$.fragment.c();
     			attr_dev(link, "rel", "stylesheet");
     			attr_dev(link, "href", "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
     			add_location(link, file$7, 1, 2, 16);
@@ -2325,24 +2509,28 @@ var app = (function () {
     			insert_dev(target, t0, anchor);
     			mount_component(header, target, anchor);
     			insert_dev(target, t1, anchor);
-    			mount_component(fetch, target, anchor);
+    			mount_component(container, target, anchor);
     			current = true;
     		},
 
-    		p: noop,
+    		p: function update(changed, ctx) {
+    			var container_changes = {};
+    			if (changed.$$scope) container_changes.$$scope = { changed, ctx };
+    			container.$set(container_changes);
+    		},
 
     		i: function intro(local) {
     			if (current) return;
     			transition_in(header.$$.fragment, local);
 
-    			transition_in(fetch.$$.fragment, local);
+    			transition_in(container.$$.fragment, local);
 
     			current = true;
     		},
 
     		o: function outro(local) {
     			transition_out(header.$$.fragment, local);
-    			transition_out(fetch.$$.fragment, local);
+    			transition_out(container.$$.fragment, local);
     			current = false;
     		},
 
@@ -2359,7 +2547,7 @@ var app = (function () {
     				detach_dev(t1);
     			}
 
-    			destroy_component(fetch, detaching);
+    			destroy_component(container, detaching);
     		}
     	};
     	dispatch_dev("SvelteRegisterBlock", { block, id: create_fragment$7.name, type: "component", source: "", ctx });
