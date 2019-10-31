@@ -4,33 +4,16 @@
 </svelte:head>
 
 <script>
-  import { Router, Link, Route } from "svelte-routing";
-  import Index from "/Index.svelte";
-  import Object from "/Object.svelte";
-  
-  export let url = "";
-
   import Header from '../components/header.svelte'
   import Items from '../components/fetch.svelte'
   import { Container, Row, Col } from 'sveltestrap'
 </script>
 
-<Router url="{url}">
-  <nav>
-    <Link to="/">Index</Link>
-    <Link to="/object">Object</Link>
-  </nav>
-  <div>
-    <Route path="/" component="{Index}" />
-    <Route path="/object" component="{Object}" />
-  </div>
-</Router>
-
 <Header/>
 <Container>
   <Row>
     <Col xs="1">
-      bar
+      dit is specifiek per product
     </Col>
     <Col>
       <Items/>
