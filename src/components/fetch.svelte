@@ -8,7 +8,7 @@ import { Container, Row, Col } from 'sveltestrap'
 const fetchString = fetch(url+"?query="+ encodeURIComponent(query) +"&format=json");
 let dataRaw = [];
 
-let fetchData = () => {
+(fetchData => {
     fetchString
     .then(res => res.json())
     .then(json => {
@@ -16,16 +16,16 @@ let fetchData = () => {
         loopData()
         dataRaw.forEach(filterHTML)
     })
-}
-fetchData()
+})()
 
 let loopData = () => {
     dataRaw.forEach(checkDescription)
+            console.log(dataRaw)
 }
 
 let checkDescription = (obj) => {
     if (!obj.description) {
-        obj.description = "geen beschrijving beschikbaar"
+        obj.description
         console.log('geen description')
     } else {
         console.log('wel description')
@@ -42,7 +42,8 @@ let checkDescription = (obj) => {
         <ItemGrid
             title={result.title.value}
             description={result.description.value}
-            imgSrc={result.img.value}>
+            imgSrc={result.img.value}
+            period={result.period.value}>
             </ItemGrid>
         {/each}
     </ul>

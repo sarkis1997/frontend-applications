@@ -1,5 +1,6 @@
 <script>
   import { Container, Row, Col, Nav, NavItem, NavLink } from 'sveltestrap';
+  import Logo from '../../spublic/images/wmnv-logo.svg'
 </script>
 
 <style>
@@ -13,7 +14,7 @@ img {
 	<Row>
 		<Col>
 			<NavLink href="#" class="text-center">
-				<img src="" alt="">
+				<img src={Logo} alt="">
 			</NavLink>
 		</Col>
 	</Row>
