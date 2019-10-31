@@ -4,14 +4,14 @@
 
 <style>
 	.logo {
-		height: 5em;
+		height: 6em;
 		margin: 3em 0;
 	}
 </style>
 
 <Container>
 	<Row>
-		<Col>
+		<Col class="text-center">
 			<img class="logo"
 				object
 				src="/images/logo-svg.svg"
