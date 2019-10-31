@@ -21,7 +21,7 @@ img {
 	<hr/>
 	<Row>
 		<Col class="text-center">
-			<h1>Slavernij in de loop der tijd</h1>
+			<h1>Slavernij sinds () </h1>
 		</Col>
 	</Row>
 	<hr/>
