@@ -8,23 +8,33 @@ import { Container, Row, Col } from 'sveltestrap'
 const fetchString = fetch(url+"?query="+ encodeURIComponent(query) +"&format=json");
 let dataRaw = [];
 
-(fetchData => {
+let fetchData = () => {
     fetchString
     .then(res => res.json())
     .then(json => {
         dataRaw = json.results.bindings
+        loopData()
         dataRaw.forEach(filterHTML)
     })
-})();
+}
+fetchData()
 
+let loopData = () => {
+    dataRaw.forEach(checkDescription)
+}
 
-
-
- setTimeout(function() {
-    console.log(dataRaw)
- }, 1000)
+let checkDescription = (obj) => {
+    if (!obj.description) {
+        obj.description = "geen beschrijving beschikbaar"
+        console.log('geen description')
+    } else {
+        console.log('wel description')
+        return
+    }
+}
 
 </script>
+
 
 <Container>
     <ul>

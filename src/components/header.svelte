@@ -20,7 +20,7 @@ img {
 	<hr/>
 	<Row>
 		<Col class="text-center">
-			<h1>Slavernij sinds 1700</h1>
+			<h1>Slavernij in de loop der tijd</h1>
 		</Col>
 	</Row>
 	<hr/>
