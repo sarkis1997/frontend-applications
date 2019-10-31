@@ -20,12 +20,14 @@ let dataRaw = [];
 
 let loopData = () => {
     dataRaw.forEach(checkDescription)
-            console.log(dataRaw)
+           console.log(dataRaw)
 }
 
 let checkDescription = (obj) => {
     if (!obj.description) {
-        obj.description
+        obj.description = {
+            value: "Excuses, voor dit object is er nog geen beschrijving beschikbaar"
+        }
         console.log('geen description')
     } else {
         console.log('wel description')

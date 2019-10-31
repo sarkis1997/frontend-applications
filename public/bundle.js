@@ -1843,18 +1843,18 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (42:8) <ItemGrid             title={result.title.value}             description={result.description.value}             imgSrc={result.img.value}             period={result.period.value}>
+    // (44:8) <ItemGrid             title={result.title.value}             description={result.description.value}             imgSrc={result.img.value}             period={result.period.value}>
     function create_default_slot_1$2(ctx) {
     	const block = {
     		c: noop,
     		m: noop,
     		d: noop
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_1$2.name, type: "slot", source: "(42:8) <ItemGrid             title={result.title.value}             description={result.description.value}             imgSrc={result.img.value}             period={result.period.value}>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_1$2.name, type: "slot", source: "(44:8) <ItemGrid             title={result.title.value}             description={result.description.value}             imgSrc={result.img.value}             period={result.period.value}>", ctx });
     	return block;
     }
 
-    // (41:8) {#each dataRaw as result}
+    // (43:8) {#each dataRaw as result}
     function create_each_block(ctx) {
     	var current;
 
@@ -1906,11 +1906,11 @@ var app = (function () {
     			destroy_component(itemgrid, detaching);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block.name, type: "each", source: "(41:8) {#each dataRaw as result}", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_each_block.name, type: "each", source: "(43:8) {#each dataRaw as result}", ctx });
     	return block;
     }
 
-    // (39:0) <Container>
+    // (41:0) <Container>
     function create_default_slot$2(ctx) {
     	var ul, current;
 
@@ -1933,7 +1933,7 @@ var app = (function () {
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
-    			add_location(ul, file$5, 39, 4, 857);
+    			add_location(ul, file$5, 41, 4, 956);
     		},
 
     		m: function mount(target, anchor) {
@@ -1999,7 +1999,7 @@ var app = (function () {
     			destroy_each(each_blocks, detaching);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot$2.name, type: "slot", source: "(39:0) <Container>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot$2.name, type: "slot", source: "(41:0) <Container>", ctx });
     	return block;
     }
 
@@ -2072,12 +2072,14 @@ var app = (function () {
 
     let loopData = () => {
         dataRaw.forEach(checkDescription);
-                console.log(dataRaw);
+               console.log(dataRaw);
     };
 
     let checkDescription = (obj) => {
         if (!obj.description) {
-            obj.description;
+            obj.description = {
+                value: "Excuses, voor dit object is er nog geen beschrijving beschikbaar"
+            };
             console.log('geen description');
         } else {
             console.log('wel description');
