@@ -12,10 +12,8 @@
 <Header/>
 <Container>
   <Row>
-    <Col xs="1">
-      dit is specifiek per product
-    </Col>
-    <Col>
+    <Col class="text-center">
+      <span style="font-size: 2em;">More details about a object</span>
       <Items/>
     </Col>
   </Row>
