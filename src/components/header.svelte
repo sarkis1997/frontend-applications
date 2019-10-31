@@ -22,7 +22,7 @@
 	<hr/>
 	<Row>
 		<Col class="text-center">
-			<h1>Slavernij sinds () </h1>
+			<h1>Slavernij sinds ... </h1>
 		</Col>
 	</Row>
 	<hr/>
