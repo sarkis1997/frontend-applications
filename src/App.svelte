@@ -4,16 +4,28 @@
 </svelte:head>
 
 <script>
-  import Header from '../components/header.svelte'
-  import Items from '../components/fetch.svelte'
+  import Header from './components/header.svelte'
+  import Items from './components/fetch.svelte'
   import { Container, Row, Col } from 'sveltestrap'
+  import { Router, Route } from "svelte-routing";
+  export let url = "";
+
+  //routes
+	import ObjectItem from './routes/Object.svelte'
 </script>
+
+<Router url="{url}">
+  	<div>
+      <Route path="/object" component="{ObjectItem}" />
+  	</div>
+</Router>
+
 
 <Header/>
 <Container>
   <Row>
-    <Col xs="1">
-      bar
+    <Col xs="1" style="border: 1px solid grey">
+      Timeline
     </Col>
     <Col>
       <Items/>
