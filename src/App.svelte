@@ -11,12 +11,13 @@
   export let url = "";
 
   //routes
-	import ObjectItem from './routes/Object.svelte'
+  import ObjectItem from './routes/Object.svelte'
+  
 </script>
 
 <Router url="{url}">
   	<div>
-      <Route path="/object" component="{ObjectItem}" />
+      <Route path="/item" component="{ObjectItem}" />
   	</div>
 </Router>
 

@@ -3480,12 +3480,12 @@ var app = (function () {
 
     const file$7 = "src/App.svelte";
 
-    // (17:0) <Router url="{url}">
+    // (18:0) <Router url="{url}">
     function create_default_slot_4$2(ctx) {
     	var div, current;
 
     	var route = new Route({
-    		props: { path: "/object", component: Object$1 },
+    		props: { path: "/item", component: Object$1 },
     		$$inline: true
     	});
 
@@ -3493,7 +3493,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			route.$$.fragment.c();
-    			add_location(div, file$7, 17, 3, 661);
+    			add_location(div, file$7, 18, 3, 665);
     		},
 
     		m: function mount(target, anchor) {
@@ -3524,11 +3524,11 @@ var app = (function () {
     			destroy_component(route);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_4$2.name, type: "slot", source: "(17:0) <Router url=\"{url}\">", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_4$2.name, type: "slot", source: "(18:0) <Router url=\"{url}\">", ctx });
     	return block;
     }
 
-    // (27:4) <Col xs="1" style="border: 1px solid grey">
+    // (28:4) <Col xs="1" style="border: 1px solid grey">
     function create_default_slot_3$2(ctx) {
     	var t;
 
@@ -3547,11 +3547,11 @@ var app = (function () {
     			}
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_3$2.name, type: "slot", source: "(27:4) <Col xs=\"1\" style=\"border: 1px solid grey\">", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_3$2.name, type: "slot", source: "(28:4) <Col xs=\"1\" style=\"border: 1px solid grey\">", ctx });
     	return block;
     }
 
-    // (30:4) <Col>
+    // (31:4) <Col>
     function create_default_slot_2$3(ctx) {
     	var current;
 
@@ -3583,11 +3583,11 @@ var app = (function () {
     			destroy_component(items, detaching);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_2$3.name, type: "slot", source: "(30:4) <Col>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_2$3.name, type: "slot", source: "(31:4) <Col>", ctx });
     	return block;
     }
 
-    // (26:2) <Row>
+    // (27:2) <Row>
     function create_default_slot_1$4(ctx) {
     	var t, current;
 
@@ -3658,11 +3658,11 @@ var app = (function () {
     			destroy_component(col1, detaching);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_1$4.name, type: "slot", source: "(26:2) <Row>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot_1$4.name, type: "slot", source: "(27:2) <Row>", ctx });
     	return block;
     }
 
-    // (25:0) <Container>
+    // (26:0) <Container>
     function create_default_slot$4(ctx) {
     	var current;
 
@@ -3706,7 +3706,7 @@ var app = (function () {
     			destroy_component(row, detaching);
     		}
     	};
-    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot$4.name, type: "slot", source: "(25:0) <Container>", ctx });
+    	dispatch_dev("SvelteRegisterBlock", { block, id: create_default_slot$4.name, type: "slot", source: "(26:0) <Container>", ctx });
     	return block;
     }
 
